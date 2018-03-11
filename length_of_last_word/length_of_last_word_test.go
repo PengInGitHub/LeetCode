@@ -7,6 +7,7 @@ import (
 
 func TestLengthOfLastWord(t *testing.T){
     
-    
-    println(lengthOfLastWord( abc))
+	println(lengthOfLastWord("    abc"))
+	//res:=lengthOfLastWord("    abc")
+	//assert.Equal(t,res,3)
 }
