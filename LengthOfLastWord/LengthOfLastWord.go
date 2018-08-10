@@ -1,4 +1,4 @@
-package length_of_last_word 
+package LengthOfLastWord 
 
 func lengthOfLastWord(s string) int {
 	bytes := []byte(s)

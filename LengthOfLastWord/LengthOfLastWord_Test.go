@@ -1,11 +1,11 @@
-package length_of_last_word 
+package LengthOfLastWord 
 
 import (
 "testing"
 
 )
 
-func TestLengthOfLastWord(t *testing.T){
+func Test_lengthOfLastWord(t *testing.T){
     
 	println(lengthOfLastWord("    abc"))
 	//res:=lengthOfLastWord("    abc")
