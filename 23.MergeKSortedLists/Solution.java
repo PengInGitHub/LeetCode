@@ -7,7 +7,7 @@
  * }
  */
 class Solution {
-    public ListNode mergeKLists(ListNode[] lists) {
+    public ListNode mergeKLists1(ListNode[] lists) {
         //int list to store all nodes val
         List<Integer> all_nodes = new ArrayList<Integer>();
         //iterate over ListNode
@@ -37,9 +37,70 @@ class Solution {
         }
         return head.next;
     }
-}
 
+    public ListNode mergeKLists(ListNode[] lists){
+        //create head and tail
+        ListNode head = new ListNode(0);
+        ListNode tail = head;
+        ListNode tmp = null;
+        while (tail != null){
+            tmp = findMinAndMove(lists);
+            tail.next = tmp;
+            tail = tail.next;
+        }
+        return head.next;
+    }
+	private ListNode findMinAndMove1(ListNode[] lists) {
+		int min_value = Integer.MAX_VALUE;
+		int ret_i = -1;
+		for (int i = 0; i < lists.length; i++) {
+			if (lists[i] == null) {
+				continue;
+			}
 
+			if (lists[i].val < min_value) {
+				min_value = lists[i].val;
+				ret_i = i;
+			}
+		}
+
+		ListNode ret_node = null;
+		if (ret_i != -1) {
+			ret_node = lists[ret_i];
+			lists[ret_i] = lists[ret_i].next;
+		}
+
+		return ret_node;
+	}    
+    
+    private ListNode findMinAndMove(ListNode[] lists){
+        //iterate lists, use index
+        //to get return index of the lists
+        int min_value = Integer.MAX_VALUE; 
+        int return_idx = -1;
+
+        for(int i=0; i<lists.length; i++){
+            if(lists[i]==null){
+                continue;
+            }
+            
+            if(lists[i].val<min_value){
+                min_value = lists[i].val;
+                return_idx = i;
+            }
+        }
+        //with the return index
+        //manipulate single ListNode
+        //find the return Node
+        ListNode return_node = null;
+        if(return_idx != -1){
+            return_node = lists[return_idx];
+            lists[return_idx] = lists[return_idx].next;
+        }
+        return return_node;
+            
+        }
+    }
 
 
 
