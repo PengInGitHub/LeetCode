@@ -7,6 +7,6 @@ class Solution(object):
         res = set()
         for email in emails:
             local, domain = (email.split('@')[0].split('+')[0]).replace('.',''), email.split('@')[1]
-            res.add(local+domain)
+            res.add(local+'@'+domain)
         return len(res)
             
