@@ -8,3 +8,6 @@ class Solution(object):
         s = s.split()[::-1]        
         return ' '.join(s)
         
+    def reverseWords2(self, s):
+        # Write your code here
+        return ' '.join([x[::-1] for x in s.split()])
